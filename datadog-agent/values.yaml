@@ -2,6 +2,9 @@ datadog:
   apiKeyExistingSecret: datadog-api
   site: datadoghq.com
   targetSystem: linux
+  apm:
+    instrumentation:
+      enabled: true
   logs:
     enabled: true
     containerCollectAll: true
