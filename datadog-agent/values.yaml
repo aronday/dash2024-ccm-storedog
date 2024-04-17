@@ -1,0 +1,25 @@
+datadog:
+  apiKeyExistingSecret: datadog-api
+  site: datadoghq.com
+  targetSystem: linux
+  logs:
+    enabled: true
+    containerCollectAll: true
+    autoMultiLineDetection: true
+  securityAgent:
+    runtime:
+      enabled: true
+    compliance:
+      enabled: true
+  sbom:
+    containerImage:
+      enabled: true
+  networkMonitoring:
+    enabled: true
+  processAgent:
+    enabled: true
+    processCollection: true
+  tags: 
+    - "k8s-cluster:storedog"
+    - "department:education"
+    - "cost_center:10020"
