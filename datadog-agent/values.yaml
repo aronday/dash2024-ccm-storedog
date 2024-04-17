@@ -14,6 +14,8 @@ datadog:
   sbom:
     containerImage:
       enabled: true
+    host:
+      enabled: true
   networkMonitoring:
     enabled: true
   processAgent:
@@ -23,3 +25,4 @@ datadog:
     - "k8s-cluster:storedog"
     - "department:education"
     - "cost_center:10020"
+    - "env:dev"
