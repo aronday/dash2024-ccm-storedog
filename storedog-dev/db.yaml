@@ -79,7 +79,13 @@ spec:
           value: "user"
         - name: PGDATA
           value: "/var/lib/postgresql/data/mydata"
-        resources: {}
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 300m
+            memory: 256Mi
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: postgresdb 

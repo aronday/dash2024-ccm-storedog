@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox
+  labels:
+    app: busybox
+spec:  
+  replicas: 4
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:latest
+        command:
+          - "sh"
+          - "-c"
+          - >
+            while true; do
+              n=$((RANDOM % 46 + 5));
+              for i in $(seq 1 $n); do
+                wget -q -O- http://frontend.default.svc.cluster.local/  > /dev/null;
+                echo "Request $i of $n";
+                sleep $((RANDOM % 5 + 1));
+              done
+            done
+        resources:
+          requests:
+            cpu: 50m
+            memory: 100Mi
+          limits:
+            cpu: 56m
+            memory: 256Mi

@@ -1,10 +1,12 @@
 datadog:
-  apiKeyExistingSecret: datadog-api
+  apiKeyExistingSecret: datadog-secret
   site: datadoghq.com
   targetSystem: linux
+  clusterName: storedog-dev
+  kubeStateMetricsCore:
+    enabled: true
   apm:
-    instrumentation:
-      enabled: true
+    portEnabled: true
   logs:
     enabled: true
     containerCollectAll: true
@@ -24,6 +26,7 @@ datadog:
   processAgent:
     enabled: true
     processCollection: true
+  hostVolumeMountPropagation: HostToContainer
   tags: 
     - "k8s-cluster:storedog"
     - "department:education"
