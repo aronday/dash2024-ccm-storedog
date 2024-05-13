@@ -1,0 +1,34 @@
+datadog:
+  apiKeyExistingSecret: datadog-secret
+  site: datadoghq.com
+  targetSystem: linux
+  clusterName: storedog-stage
+  kubeStateMetricsCore:
+    enabled: true
+  apm:
+    portEnabled: true
+  logs:
+    enabled: true
+    containerCollectAll: true
+    autoMultiLineDetection: true
+  securityAgent:
+    runtime:
+      enabled: true
+    compliance:
+      enabled: true
+  sbom:
+    containerImage:
+      enabled: true
+    host:
+      enabled: true
+  networkMonitoring:
+    enabled: true
+  processAgent:
+    enabled: true
+    processCollection: true
+  hostVolumeMountPropagation: HostToContainer
+  tags: 
+    - "k8s-cluster:storedog"
+    - "department:education"
+    - "cost_center:10020"
+    - "env:stage"
