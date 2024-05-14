@@ -7,7 +7,7 @@ metadata:
     app: ecommerce
   name: advertisements
 spec:
-  replicas: 4
+  replicas: 10
   selector:
     matchLabels:
       tags.datadoghq.com/env: prod

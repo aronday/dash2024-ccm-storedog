@@ -7,7 +7,7 @@ metadata:
     tags.datadoghq.com/env: prod
   name: frontend
 spec:
-  replicas: 6
+  replicas: 10
   selector:
     matchLabels:
       tags.datadoghq.com/service: storefront
